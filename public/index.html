@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="container" class="container">
+            <div id="search" class="search">
+                <form id="form">
+                    <input
+                    type="text"
+                    name="youtube"
+                    id="youtube"
+                    value="https://www.youtube.com/playlist?list=PLcCp4mjO-z98WAu4sd0eVha1g-NMfzHZk"
+                    />
+                    <input type="submit" value="Search" />
+                </form>
+            </div>
+            <div id="error" class="error hidden"></div>
+            <div id="result" class="result hidden">
+                <h1 id="playlist-title"></h1>
+                <h2>Total playlist time</h2>
+                <div id="time" class="time">
+                    <span id="hours" class="hours"></span>H:<span id="minutes" class="minutes"></span>M:<span id="seconds" class="seconds"></span>S
+                </div>
+                <div id="video-list" class="video-list">
+
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
 </html>

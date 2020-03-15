@@ -1,0 +1,161 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.search form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+
+
+.search form input:first-child {
+    margin-bottom: 0.5rem;
+    width: 90%;
+}
+
+.error {
+    background-color: #FF8A80;
+    color: #880E4F;
+    padding: 1rem;
+    border: 2px solid #B71C1C;
+    max-width: 90%;
+    margin: 1rem 0;
+}
+
+.hidden {
+    display: none;
+}
+
+.hours,
+.minutes,
+.seconds {
+    font-size: 3rem;
+    padding: 0 1rem;
+}
+
+.result {
+    width: 100%;
+}
+
+.result > h1, .result > h2 {
+    margin: 1rem 0;
+}
+
+.video-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+}
+
+.video-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 90%;
+    padding: 1rem;
+    border: 1px solid black;
+    margin: 1rem;
+}
+
+.video-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.video-header-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.video-subtitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.video-thumbnail img{
+    width: 100%;
+    height: auto;
+}
+
+.video-thumbnail {
+    width: 100%;
+}
+
+.video-description {
+    text-align: left;
+    padding: 1rem 0;
+}
+
+.video-title {
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.video-duration, .video-channel-name {
+    font-size: 1.5rem;
+}
+
+@media (min-width:1000px) {
+    .video-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .video-item {
+        justify-content: start;
+    }
+
+    .search {
+        width: 50%;
+    }
+
+    .video-header {
+    flex-direction: row;
+
+    }
+
+    .video-header-text {
+        width: 60%;
+    }
+
+    .video-thumbnail {
+        width: 40%;
+    }
+}

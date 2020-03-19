@@ -19,9 +19,6 @@ const app = express();
 app.use(express.static("public"));
 
 app.get("/api/playlist", async (req, res) => {
-    // return res.status(400).send({error:"random error"})
-    // const path = require("path");
-    // return res.sendFile(path.join(__dirname,'playlist.json'))
     const youtube_id = req.query.youtube_id;
     const playlist_url = `${YOUTUBE_PLAYLIST_URL}?part=contentDetails,snippet&maxResults=${MAX_RESULTS}&playlistId=${youtube_id}&key=${API_KEY}`;
     let videos = [];
@@ -43,7 +40,6 @@ app.get("/api/playlist", async (req, res) => {
         videos = [...videos, ...data.data.items];
     }
     const all_ids = videos.map(video => video.contentDetails.videoId);
-    // console.log(all_ids.join(','));
     
     let chunked_ids = []; // API can resolve max 50 videos at a time, separating array into array of arrays of 50 ids
     while (all_ids.length) {

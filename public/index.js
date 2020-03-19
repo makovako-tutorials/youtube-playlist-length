@@ -263,15 +263,10 @@ document.getElementById("form").addEventListener("submit", async e => {
     youtube_id = get_youtube_id(url);
     if (youtube_id) {
         try {
-            console.log('here');
-            
             const res = await fetch(`/api/playlist?youtube_id=${youtube_id}`)
-            console.log(res);
             
             if (res.ok) {
                 const data = await res.json()
-                console.log(data);
-                
                 const {seconds, minutes, hours} = get_total_time(data.results)
                 update_document({playlistTitle:data.playlistTitle, results:data.results, total_time: {seconds, minutes, hours}}) 
             } else {

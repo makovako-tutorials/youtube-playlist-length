@@ -190,29 +190,24 @@ body {
     font-size: 1.5rem;
 }
 
-@media (min-width:1000px) {
+@media (min-width: 700px) {
     .video-list {
         grid-template-columns: repeat(2, 1fr);
     }
+}
 
-    .video-item {
-        justify-content: start;
+@media (min-width:1000px) {
+    .video-list {
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .search {
         width: 50%;
     }
+}
 
-    .video-header {
-    flex-direction: row;
-
-    }
-
-    .video-header-text {
-        width: 60%;
-    }
-
-    .video-thumbnail {
-        width: 40%;
+@media (min-width:1500px) {
+    .video-list {
+        grid-template-columns: repeat(4, 1fr);
     }
 }

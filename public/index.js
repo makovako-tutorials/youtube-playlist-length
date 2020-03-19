@@ -114,7 +114,8 @@ const number_to_two_places = number => {
  * @param {Video object} result 
  */
 const construct_video_element = result => {
-    const numOfWords = window.matchMedia("(max-width:700px)").matches ? 50 : 100
+    // const numOfWords = window.matchMedia("(max-width:700px)").matches ? 50 : 100
+    const numOfWords = 50
 
     const videoItemDiv = document.createElement('DIV')
     videoItemDiv.classList.add('video-item')

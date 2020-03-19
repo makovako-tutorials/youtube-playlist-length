@@ -120,6 +120,7 @@ const construct_video_element = result => {
     videoItemDiv.classList.add('video-item')
     const {hours, minutes, seconds} = consolidate_durations(parse_duration(result.duration))
     videoItemDiv.innerHTML = `
+    <a href='https://www.youtube.com/watch?v=${result.id}'>
     <div class="video-header">
         <div class="video-thumbnail">
             <img src="${result.thumbnailUrl}" alt="Video thumbnail" />
@@ -149,6 +150,7 @@ const construct_video_element = result => {
             ${truncate_description(result.description, numOfWords)}
         </p>
     </div>
+    </a>
     `
 
     if (false)
@@ -218,7 +220,7 @@ const construct_video_element = result => {
  */
 const update_document = ({playlistTitle, results, total_time}) => {
     clearError()
-    document.getElementById('playlist-title').innerText = `Playlist: ${playlistTitle}`
+    document.getElementById('playlist-title').innerHTML = `Playlist: <span>${playlistTitle}<span>`
 
     
     document.getElementById('hours').innerText = total_time.hours

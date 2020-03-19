@@ -1,3 +1,11 @@
+:root {
+    --color-orange: #F48256;
+    --color-gray-light: #DFF0EA;
+    --color-gray-dark: #95ADBE;
+    --color-purple-light: #574F7D;
+    --color-purple-dark: #4F3A65;
+}
+
 *,
 *::before,
 *::after {
@@ -8,6 +16,8 @@
 
 body {
     text-align: center;
+    background-color: var(--color-gray-dark);
+    color: var(--color-purple-dark)
 }
 
 .container {
@@ -29,16 +39,42 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 10px;
     margin-top: 1rem;
-    padding: 0.5rem;
+    padding: 1.5rem;
     width: 100%;
+    background-color: var(--color-gray-light);
+    box-shadow: 0px 0px 20px 10px var(--color-gray-light);
+
+}
+
+.search form input[type=text] {
+    border: none;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.search form input[type=submit] {
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    background-color: var(--color-orange);
+    transition: transform ease-in-out 0.1s;
+    cursor: pointer;
+}
+
+.search form input[type=submit]:hover {
+    transform: scale(1.1,1.1);
+
 }
 
 
 
 .search form input:first-child {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     width: 90%;
 }
 
@@ -55,6 +91,13 @@ body {
     display: none;
 }
 
+#playlist-title span,
+.hours,
+.minutes,
+.seconds {
+    color: #18206F;
+}
+
 .hours,
 .minutes,
 .seconds {
@@ -64,6 +107,7 @@ body {
 
 .result {
     width: 100%;
+    margin-top: 2rem;
 }
 
 .result > h1, .result > h2 {
@@ -83,8 +127,21 @@ body {
     align-items: center;
     width: 90%;
     padding: 1rem;
-    border: 1px solid black;
     margin: 1rem;
+    box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.5);
+    background-color: var(--color-gray-light);
+    transition: color ease-in-out 0.2s, background-color ease-in-out 0.2s;
+}
+
+.video-item a {
+    text-decoration: none;
+    color: var(--color-purple-dark);
+}
+
+.video-item:hover {
+    text-decoration: none;
+    color: #111;
+    background-color: #eee;
 }
 
 .video-header {

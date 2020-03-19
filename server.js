@@ -19,6 +19,8 @@ const app = express();
 app.use(express.static("public"));
 
 app.get("/api/playlist", async (req, res) => {
+    const path = require("path");
+    return res.sendFile(path.join(__dirname,'playlist.json'))
     const youtube_id = req.query.youtube_id;
     const playlist_url = `${YOUTUBE_PLAYLIST_URL}?part=contentDetails,snippet&maxResults=${MAX_RESULTS}&playlistId=${youtube_id}&key=${API_KEY}`;
     let videos = [];

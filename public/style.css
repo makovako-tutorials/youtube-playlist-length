@@ -45,8 +45,11 @@ body {
     padding: 1.5rem;
     width: 100%;
     background-color: var(--color-gray-light);
-    box-shadow: 0px 0px 20px 10px var(--color-gray-light);
+    transition: box-shadow ease-in-out 0.5s;
+}
 
+.search form:focus-within {
+    box-shadow: 0px 0px 20px 10px var(--color-gray-light);
 }
 
 .search form input[type=text] {

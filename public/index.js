@@ -229,6 +229,7 @@ const update_document = ({playlistTitle, results, total_time}) => {
     document.getElementById('seconds').innerText = total_time.seconds
     
     const videoListDiv = document.getElementById('video-list')
+    videoListDiv.style.opacity = 0
     videoListDiv.innerText = ""
 
     results.map(result => {
@@ -237,6 +238,18 @@ const update_document = ({playlistTitle, results, total_time}) => {
     })
 
     resultDiv.classList.remove('hidden')
+    setInterval(() => {
+        
+    }, 500);
+    var steps = 0;
+    var timer = setInterval(function() {
+        steps++;
+        videoListDiv.style.opacity = 0.05 * steps;
+        if(steps >= 20) {
+            clearInterval(timer);
+            timer = undefined;
+        }
+    }, 50);
 }
 
 /**
@@ -264,6 +277,9 @@ document.getElementById("form").addEventListener("submit", async e => {
     e.preventDefault();
     const url = e.target.youtube.value;
     youtube_id = get_youtube_id(url);
+    document.getElementById('video-list').style.opacity = 0;
+    document.getElementById('video-list').classList.add('hidden');
+
     if (youtube_id) {
         try {
             const res = await fetch(`/api/playlist?youtube_id=${youtube_id}`)

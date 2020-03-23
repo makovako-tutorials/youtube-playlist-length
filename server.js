@@ -28,7 +28,7 @@ app.get("/api/playlist", async (req, res) => {
     try {
         data = await axios.get(playlist_url);
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({ error: error.message  + "\"in playlist processing\"" });
     }
     videos = [...videos, ...data.data.items];
     while (data.data.hasOwnProperty("nextPageToken")) {
@@ -37,7 +37,7 @@ app.get("/api/playlist", async (req, res) => {
                 `${playlist_url}&pageToken=${data.data.nextPageToken}`
             );
         } catch (error) {
-            return res.status(500).json({ error: error.message });
+            return res.status(500).json({ error: error.message  + "\"in playlist processing\"" });
         }
         videos = [...videos, ...data.data.items];
     }
@@ -61,15 +61,15 @@ app.get("/api/playlist", async (req, res) => {
                         id: video.id,
                         title: video.snippet.title,
                         description: video.snippet.description,
-                        thumbnailUrl: video.snippet.thumbnails.standard.url,
+                        thumbnailUrl: video.snippet.thumbnails.high.url,
                         channelTitle: video.snippet.channelTitle,
                         duration: video.contentDetails.duration
                     };
                 })
             )))
         
-    } catch (error) {
-        return res.status(500).json({ error: error.message });
+    } catch (error) {  
+        return res.status(500).json({ error: error.message + "\"in video processing\"" });
     }
     results = results.flat()
     
@@ -82,7 +82,7 @@ app.get("/api/playlist", async (req, res) => {
         );
         playlistTitle = data.data.items[0].snippet.title;
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({ error: error.message  + "\"in getting playlist name\""});
     }
     return res.json({ playlistTitle, results });
 });
